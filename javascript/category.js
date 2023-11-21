@@ -24,10 +24,10 @@ function createProductEl(product)
 	parentElement.appendChild(container)
 }
 
-async function fetchProductList(limit,category,search="")
+async function fetchProductList(limit,category,query="")
 {
 	try{
-		const url = `https://vef1-2023-h2-api-791d754dda5b.herokuapp.com/products?limit=${limit}&category=${category}&search=${search}`
+		const url = `https://vef1-2023-h2-api-791d754dda5b.herokuapp.com/products?limit=${limit}&category=${category}&search=${query}`
 		const response = await fetch(url)
 		const products = await response.json()
 		
@@ -42,6 +42,9 @@ async function fetchProductList(limit,category,search="")
 
 const attrib_url = new URL(window.location.href).search
 const category = attrib_url.substring(1)
-const query = attrib_url.substring(attrib_url.search('&')+1)
+let query = ""
+if(attrib_url.indexOf('&') > -1)
+	query = attrib_url.substring(attrib_url.search('&')+1)
+	
 console.log(query)
 fetchProductList(100, category, query)
