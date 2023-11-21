@@ -24,6 +24,23 @@ function createProductEl(product)
 	parentElement.appendChild(container)
 }
 
+function createCategoryElement(category)
+{
+	const parent = document.querySelector(".categories")
+	const elementContainer = document.createElement("div")
+	const link = document.createElement("a")
+	const title = document.createElement("h2")
+	
+	title.textContent = category.title
+	link.href="categoriesPage.html"
+	
+	link.classList.add("category_cell")
+	
+	link.appendChild(elementContainer)
+	elementContainer.appendChild(title)
+	parent.appendChild(link)
+}
+
 async function fetchProductList(limit=10)
 {
 	try{
@@ -40,4 +57,21 @@ async function fetchProductList(limit=10)
 	}
 }
 
+async function fetchCategories()
+{
+	try{
+		const url = `https://vef1-2023-h2-api-791d754dda5b.herokuapp.com/categories?limit=12`
+		const response = await fetch(url)
+		const categories = await response.json()
+		
+		for(const category of categories.items)
+			createCategoryElement(category)
+			
+	} catch(error)
+	{
+		console.error("Error: ", error);
+	}
+}
+
 fetchProductList(6)
+fetchCategories()
