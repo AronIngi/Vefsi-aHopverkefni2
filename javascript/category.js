@@ -43,7 +43,7 @@ async function fetchProductList(limit,category,query="")
 	}
 }
 
-//when the search button is clicked, the query from the search box is added to the url
+//A function that runs when the search button is clicked; the query from the search box is added to the url
 function submitHandler(event)
 {
 	event.preventDefault()
