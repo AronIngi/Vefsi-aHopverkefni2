@@ -1,0 +1,43 @@
+body
+{
+	background-color:black;
+}
+
+header h1
+{
+	color:white;
+}
+
+nav a
+{
+	color:white;
+}
+
+a{
+	text-decoration:none;
+	color:black;
+}
+
+main
+{
+	background-color:white;
+}
+
+.categoryContainer
+{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	gap:2rem 5rem;
+}
+
+.product_item
+{
+	margin-top:2rem;
+}
+
+img 
+{
+	height:20rem;
+	width:29rem;
+}

@@ -32,7 +32,7 @@ function createCategoryElement(category)
 	const title = document.createElement("h2")
 	
 	title.textContent = category.title
-	link.href="categoriesPage.html"
+	link.href=`category.html?${category.id}`
 	
 	link.classList.add("category_cell")
 	
